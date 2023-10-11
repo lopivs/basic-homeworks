@@ -10,8 +10,7 @@ public class HomeWork3 {
         int a = scanner.nextInt();
         switch (a) {
             case 1 -> greetings();
-            case 2 ->
-                    checkSign((int) (Math.random() * 10 - 5), (int) (Math.random() * 10 - 5), (int) (Math.random() * 10 - 5));
+            case 2 -> checkSign((int) (Math.random() * 10 - 5), (int) (Math.random() * 10 - 5), (int) (Math.random() * 10 - 5));
             case 3 -> selectColor();
             case 4 -> compareNumbers();
             case 5 -> addOrSubtractAndPrint((int) (Math.random() * 20), (int) (Math.random() * 5), Math.random() < 0.5);
