@@ -2,6 +2,7 @@ package ru.lopatin.homeworks.homework5;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Homework5 {
     public static void main(String[] args) {
@@ -16,7 +17,7 @@ public class Homework5 {
         // *
         sumArrays(array, array2, array3);
         isEqualPoint(new int[]{5,2,2,8,3,7,7});
-        isDescArray(new int[]{6,5,4,2,1,2});
+        isDescArray(new int[]{6,5,4,3,2,1});
         reverseArray(new int[]{1,2,3,4,5,6,7,8,9});
     }
 
@@ -129,24 +130,34 @@ public class Homework5 {
     //        возрастания (по выбору пользователя)
     public static void isDescArray(int[] arr) {
         System.out.println("8) *isDescArray");
+        Scanner scanner = new Scanner(System.in);
+        int typeCheck = 0;
+        do {
+            System.out.println("Укажите вариант проверки: 1 - по возрастанию, 2 по убыванию");
+            typeCheck = scanner.nextInt();
+            if (!(typeCheck == 1||typeCheck == 2)){
+                typeCheck = 0;
+            }
+        } while (typeCheck == 0);
+
         for (int i = 0; i < arr.length-1; i++) {
-            if(arr[i]<arr[i+1]){
-                System.out.println("Массив не отсортирован в порядке убывания");
+            if((arr[i]>arr[i+1] && typeCheck == 1)||(arr[i]<arr[i+1] && typeCheck == 2)) {
+                System.out.println("Массив не отсортирован");
                 return;
             }
         }
-        System.out.println("Массив отсортирован в порядке убывания");
+        System.out.println("Массив отсортирован");
     }
     //9)Реализуйте метод, “переворачивающий” входящий массив
     //        Пример: { 1 2 3 4 } => { 4 3 2 1 }*/
     public static void reverseArray(int[] arr) {
         System.out.println("9) *reverseArray");
         System.out.println("До    "+Arrays.toString(arr));
-        int bubble =0;
+        int tmp =0;
         for (int i = 0; i < arr.length/2; i++) {
-            bubble = arr[i];
+            tmp = arr[i];
             arr[i]=arr[arr.length-1-i];
-            arr[arr.length-1-i] = bubble;
+            arr[arr.length-1-i] = tmp;
         }
         System.out.println("После "+Arrays.toString(arr));
     }
