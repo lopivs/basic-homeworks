@@ -49,15 +49,10 @@ public class Homework7 {
     // и зануляющий его диагональные элементы (можете выбрать любую из диагоналей, или занулить обе);
     public static void diagonalZero(int[][] arr) {
         System.out.println("3) diagonalZero ");
+
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if(i==j){
-                    arr[i][j]=0;
-                }
-                if(i==arr[i].length-j-1){
-                    arr[i][j]=0;
-                }
-            }
+            arr[i][i]=0;
+            arr[i][arr[i].length-i-1]=0;
         }
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
