@@ -20,7 +20,7 @@ public class Box {
     private float length;
 
 
-    public Box(int size, String colo, float height, float width, float length) {
+    public Box(int size, String color, float height, float width, float length) {
         this.color = color;
         this.items = new String[size];
         this.height = height;
