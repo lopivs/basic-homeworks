@@ -1,4 +1,4 @@
-package ru.lopatin.homeworks.homeworkOOP1;
+package ru.lopatin.homeworks.homework.oop1;
 
 import java.util.Scanner;
 
@@ -28,19 +28,31 @@ public class MainApp {
 
     public static void newBox() {
         Scanner scanner = new Scanner(System.in);
-        Box box = new Box(15, "yelow");
+        Box box = new Box(15, "yelow", 14f,4.5f, 7.4f);
         box.info();
         int choice;
         while (true) {
             System.out.println("Что хочешь сделать с коробкой: \n 0 - перекрасить, 1 - открыть, 2 - закрыть, 3 - положить предмет, 4 - убрать предмет по названию, 5 очистить ячейку по номеру ячейки, 6 - выйти");
             choice = scanner.nextInt();
             switch (choice) {
-                case 0 -> box.setColor();
+                case 0 -> {
+                    System.out.println("Введите новый цвет коробки:");
+                    box.setColor(scanner.next());
+                }
                 case 1 -> box.openBox();
                 case 2 -> box.closeBox();
-                case 3 -> box.addItem();
-                case 4 -> box.deleteItem();
-                case 5 -> box.freeCell();
+                case 3 -> {
+                    System.out.println("Введите название предмета, который хотите добавить:");
+                    box.addItem(scanner.next());
+                }
+                case 4 -> {
+                    System.out.println("Введите название предмета, который хотите убрать из коробки:");
+                    box.deleteItem(scanner.next());
+                }
+                case 5 -> {
+                    System.out.println("Введите номер ячейки, которую хотите освободить:");
+                    box.freeCell(scanner.nextInt());
+                }
                 default -> {break;}
             }
         }

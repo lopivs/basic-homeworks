@@ -1,4 +1,4 @@
-package ru.lopatin.homeworks.homeworkOOP1;
+package ru.lopatin.homeworks.homework.oop1;
 // Попробуйте реализовать класс по его описания: объекты класса Коробка должны иметь размеры и цвет.
 // Коробку можно открывать и закрывать. Коробку можно перекрашивать. Изменить размер коробки после создания нельзя.
 // У коробки должен быть метод, печатающий информацию о ней в консоль.
@@ -10,16 +10,23 @@ import java.util.Scanner;
 
 public class Box {
     private String color;
-    private boolean isOpen = false;
+    private boolean isOpen;
     private String[] items;
-    private Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    private float height;
 
-    }
-    public Box(int size, String color) {
+    private float width;
+
+    private float length;
+
+
+    public Box(int size, String colo, float height, float width, float length) {
         this.color = color;
         this.items = new String[size];
+        this.height = height;
+        this.width = width;
+        this.length = length;
+
     }
 
     public void openBox() {
@@ -40,14 +47,12 @@ public class Box {
         System.out.println("Коробка закрыта");
     }
 
-    public void addItem() {
+    public void addItem(String item) {
         if (!isOpen) {
             System.out.println("Коробка закрыта, открой ее, чтобы положить в нее предмет");
             return;
         }
-        System.out.println("Введите название предмета, который хотите добавить:");
-        String item = scanner.next();
-        for (int i = 0; i < items.length; i++) {
+         for (int i = 0; i < items.length; i++) {
             if (items[i] == null) {
                 items[i] = item;
                 System.out.println(item + " добавлен в коробку, в ячейку №" + (i + 1));
@@ -57,14 +62,12 @@ public class Box {
         System.out.println("В коробке нет свободного места, нужно сначала что то убрать");
     }
 
-    public void freeCell() {
+    public void freeCell(int cell) {
         if (!isOpen) {
             System.out.println("Коробка закрыта, открой ее, чтобы убрать из нее предмет");
             return;
         }
-        System.out.println("Введите номер ячейки, которую хотите освободить:");
-        int cell = scanner.nextInt();
-        cell++;
+        cell--;
         if (items[cell] == null) {
             System.out.println("Ячейка пуста, убирать нечего.");
             return;
@@ -76,15 +79,13 @@ public class Box {
         System.out.println("Ячейка " + cell + " очищена");
     }
 
-    public void deleteItem() {
+    public void deleteItem(String item) {
         if (!isOpen) {
             System.out.println("Коробка закрыта, открой ее, чтобы убрать из нее предмет");
             return;
         }
-        System.out.println("Введите название предмета, который хотите убрать из коробки:");
-        String item = scanner.next();
         for (int i = 0; i < items.length; i++) {
-            if (items[i] == item) {
+            if (item.equals(items[i])) {
                 items[i] = null;
                 System.out.println(item + " убрали из коробки, ячейка №" + (i + 1) + " освождена");
                 return;
@@ -93,13 +94,11 @@ public class Box {
         System.out.println(item + " не найден в коробке");
     }
 
-    public void setColor() {
+    public void setColor(String color) {
         if (isOpen) {
             System.out.println("Коробка открыта, закрой ее, чтобы не испачкать содержимое");
             return;
         }
-        System.out.println("Введите новый цвет коробки:");
-        String color = scanner.next();
         this.color = color;
         System.out.println("Коробка перекрашена в " + color + " цвет");
     }

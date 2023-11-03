@@ -1,4 +1,4 @@
-package ru.lopatin.homeworks.homeworkOOP1;
+package ru.lopatin.homeworks.homework.oop1;
 
 import java.time.LocalDate;
 
