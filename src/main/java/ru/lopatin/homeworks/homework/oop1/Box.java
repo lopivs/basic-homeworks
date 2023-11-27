@@ -75,7 +75,7 @@ public class Box {
             System.out.println("Ячейки с номером " + cell + " нет в коробке. ");
             return;
         }
-        items[cell] = "";
+        items[cell] = null;
         System.out.println("Ячейка " + cell + " очищена");
     }
 
