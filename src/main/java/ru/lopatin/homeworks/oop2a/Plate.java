@@ -4,9 +4,9 @@ public class Plate {
     private int foodCapacity;
     private int foodRemain;
 
-    public Plate(int food_capacity) {
-        this.foodCapacity = food_capacity;
-        this.foodRemain = food_capacity;
+    public Plate(int foodCapacity) {
+        this.foodCapacity = foodCapacity;
+        this.foodRemain = foodCapacity;
     }
 
     public void addFood (int foodCount){
