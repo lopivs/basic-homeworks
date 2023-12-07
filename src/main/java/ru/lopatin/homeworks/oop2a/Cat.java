@@ -11,6 +11,10 @@ public class Cat {
     }
 
     public void eat (Plate plate){
+        if(this.satiety){
+            System.out.println(name + " еще не проголодался");
+            return;
+        }
         this.satiety = plate.decreaseFood(this.appetite);
         System.out.println(name + (satiety ? " сыт" : " голоден"));
     }

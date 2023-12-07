@@ -1,27 +1,31 @@
 package ru.lopatin.homeworks.oop2a;
 
 public class Plate {
-    private int food_capacity;
-    private int food_remain;
+    private int foodCapacity;
+    private int foodRemain;
 
     public Plate(int food_capacity) {
-        this.food_capacity = food_capacity;
-        this.food_remain = food_capacity;
+        this.foodCapacity = food_capacity;
+        this.foodRemain = food_capacity;
     }
 
     public void addFood (int foodCount){
-        if (this.food_remain + foodCount > this.food_capacity){
-            this.food_remain = this.food_capacity;
+        if (this.foodRemain + foodCount > this.foodCapacity){
+            this.foodRemain = this.foodCapacity;
+            System.out.println("Слишком много корма, в тарелку вошла только недостающая часть");
+            return;
         }
-        this.food_remain += foodCount;
+        this.foodRemain += foodCount;
+        System.out.println("Весь корм вошел в тарелку");
     }
 
     public boolean decreaseFood (int foodCount){
-        if (this.food_remain - foodCount >= 0){
-            this.food_remain -= foodCount;
+        if (this.foodRemain - foodCount >= 0){
+            this.foodRemain -= foodCount;
             return true;
         }
         return false;
     }
+
 
 }

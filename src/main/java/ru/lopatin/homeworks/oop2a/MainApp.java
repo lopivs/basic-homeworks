@@ -10,8 +10,12 @@ public class MainApp {
         Cat[] cat = new Cat[10];
         for (int i = 0; i < cat.length; i++) {
             cat[i] = new Cat("Котик № " + (i+1), random.nextInt(25));
-            cat[i].eat(plate);
+            for (int j = 0; j < random.nextInt(4); j++) {
+                cat[i].eat(plate);
+            }
         }
+
+        plate.addFood(130);
 
     }
 }
