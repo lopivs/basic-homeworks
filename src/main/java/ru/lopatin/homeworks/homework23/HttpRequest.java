@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HttpRequest {
+    private HttpStatusCode statusCode;
     private static final Logger logger = LogManager.getLogger(HttpRequest.class);
     private String rawRequest;
     private String uri;

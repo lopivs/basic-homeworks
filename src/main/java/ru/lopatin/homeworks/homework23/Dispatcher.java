@@ -1,10 +1,7 @@
 package ru.lopatin.homeworks.homework23;
 
 
-import ru.lopatin.homeworks.homework23.processors.HelloWorldRequestProcessor;
-import ru.lopatin.homeworks.homework23.processors.OperationAddRequestProcessor;
-import ru.lopatin.homeworks.homework23.processors.RequestProcessor;
-import ru.lopatin.homeworks.homework23.processors.UnknownRequestProcessor;
+import ru.lopatin.homeworks.homework23.processors.*;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -19,6 +16,7 @@ public class Dispatcher {
         this.router = new HashMap<>();
         this.router.put("/add", new OperationAddRequestProcessor());         // /GET /add => OperationAddRequestProcessor
         this.router.put("/hello_world", new HelloWorldRequestProcessor());   // /GET /hello_world => HelloWorldRequestProcessor
+        this.router.put("/get_json_product", new ProductJsonRequestProcessor());   // /GET /get_json_product => ProductJsonRequestProcessor
         this.unknownRequestProcessor = new UnknownRequestProcessor();
     }
 
