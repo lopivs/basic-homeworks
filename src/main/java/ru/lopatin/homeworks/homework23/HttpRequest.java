@@ -1,9 +1,14 @@
 package ru.lopatin.homeworks.homework23;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class HttpRequest {
+    private HttpStatusCode statusCode;
+    private static final Logger logger = LogManager.getLogger(HttpRequest.class);
     private String rawRequest;
     private String uri;
     private HttpMethod method;
@@ -47,8 +52,8 @@ public class HttpRequest {
         if (showRawRequest) {
             System.out.println(rawRequest);
         }
-        System.out.println("URI: " + uri);
-        System.out.println("HTTP METHOD: " + method);
+        logger.info("URI: " + uri);
+        logger.info("HTTP METHOD: " + method);
     }
 }
 
